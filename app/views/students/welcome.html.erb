@@ -1,0 +1,25 @@
+<h1>Students#welcome</h1>
+<p>Find me in app/views/students/welcome.html.erb</p>
+<div id="page">
+<h1>Students#welcome</h1>
+<p>Links to all pages:</p>
+<ol>
+	<li><%= link_to "Students", students_path %></li>
+	<li><%#= link_to "Student", student_path%></li>
+	<li><%= link_to "Create New Student", new_student_path %></li>
+	<li><%#= link_to "Edit Student Details", edit_student_path %></li>
+</ol>
+</div>
+
+<div id="sidebar">
+<!-- i shld create a test for this to check if dere is actually a model dat matches d form i am creating -->
+<p>Sign Up </p>
+<%#= form_for(@student) do |f|
+%>
+<%#= f.label :name %>
+<%#= f.text_field :name %> <br />
+<%#= f.label :student_id %>
+<%#= f.text_field :student_id %>
+<%#= f.submit %>
+<%# end %>
+</div>
