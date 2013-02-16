@@ -1,7 +1,7 @@
-<h1>Students#welcome</h1>
-<p>Find me in app/views/students/welcome.html.erb</p>
-<div id="page">
-<h1>Students#welcome</h1>
+<%# provide(:title, 'Welcome') %>  <!-- STRANGE DAT DIS IS D REASON FOR MY TESTS FAILING -->
+<div id="page_wrapper">
+<div id="content">
+<h1>Welcome</h1>
 <p>Links to all pages:</p>
 <ol>
 	<li><%= link_to "Students", students_path %></li>
@@ -13,7 +13,9 @@
 
 <div id="sidebar">
 <!-- i shld create a test for this to check if dere is actually a model dat matches d form i am creating -->
-<p>Sign Up </p>
+<%= link_to "Sign In", '#', class: "btn"  %>
+<%= link_to "Sign Up", signup_path, class: "btn"  %>
+
 <%#= form_for(@student) do |f|
 %>
 <%#= f.label :name %>
@@ -22,4 +24,5 @@
 <%#= f.text_field :student_id %>
 <%#= f.submit %>
 <%# end %>
+</div>
 </div>

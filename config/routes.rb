@@ -4,6 +4,8 @@ Simi::Application.routes.draw do
 
   root :to => 'students#welcome'
 
+  match '/signup', to: 'students#new'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
