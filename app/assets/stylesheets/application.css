@@ -146,3 +146,28 @@ border:1px solid #25729a; -webkit-border-radius: 3px; -moz-border-radius: 3px;bo
 	/*-webkit-box-sizing: border-box;*/
 	/*box-sizing: border-box;*/
 }
+
+pre {
+	width: 200px;
+}
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}

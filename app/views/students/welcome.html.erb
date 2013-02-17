@@ -10,20 +10,20 @@
 	<li><%= link_to "Create New Student", new_student_path %></li>
 	<li><%#= link_to "Edit Student Details", edit_student_path %></li>
 </ol>
+<p>Instead of usin id's cant i use numbers as my value for params...</p>
 </div>
 
 <div id="sidebar">
 <!-- i shld create a test for this to check if dere is actually a model dat matches d form i am creating -->
-<%= link_to "Sign In", '#', class: "btn"  %>
 <%= link_to "Sign Up", signup_path, class: "btn"  %>
 <%#= debug(params) if Rails.env.development? %>
-<%#= form_for(@student) do |f|
-%>
-<%#= f.label :name %>
-<%#= f.text_field :name %> <br />
-<%#= f.label :student_id %>
-<%#= f.text_field :student_id %>
-<%#= f.submit %>
-<%# end %>
+<%= form_for(@student) do |f| %>
+	<%= render 'shared/error_messages' %>
+	<%= f.label :name %>
+	<%= f.text_field :name %> <br />
+	<%= f.label :student_id %>
+	<%= f.text_field :student_id %>
+	<%= f.submit "Sign In", class: "btn" %>
+<% end %>
 </div>
 </div>

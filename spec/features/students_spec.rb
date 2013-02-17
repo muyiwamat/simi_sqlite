@@ -30,14 +30,32 @@ describe "Students" do
 		it { should have_selector('h1', text: 'Students Page') }
 		it { should have_selector('title', text: "Student Portal | Index") }
 	end
-	describe "New page" do
+	describe "Create Account page" do
 		before { visit new_student_path }
+		let(:submit) { "Create Account" }
 		it { should have_selector('h1', text: "Create Student Account") }
 		it { should have_selector('title', text: "Student Portal | New") }
+		describe "with invalid informatio" do
+			it "should not be successful" do
+				expect { click_button submit }.not_to change(Student, :count)
+			end
+		end
+
+		describe "with valid information" do
+			before do
+				fill_in "Name", 		with: "Simi"
+				fill_in "Student ID", 	with: 51126137 #strange dis test is failing...
+				fill_in "Password", 	with: "ayodele"
+				fill_in "Confirmation", with: "ayodele"
+			end
+			it "should be successful" do
+				expect { click_button submit }.to change(Student, :count).by(1)
+			end
+		end
 	end
 	describe "Show page" do
 		let(:student) { FactoryGirl.create(:student) }
-		it "should have the h1 'Show' " do
+		it "should have the h1 'Show'" do
 			visit student_path(student.id)
 			page.should have_selector('h1', :text => 'Show')
 		end

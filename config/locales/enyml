@@ -3,8 +3,6 @@
 
 en:
   activerecord:
-    models:
-      # student: "Dude" i shld try dis out as well...
     attributes:
       student:
         student_id: "Student ID"
