@@ -54,8 +54,8 @@ describe "Students" do
     visit root_path
     click_link "Sign Up"
     page.should have_selector 'title', :text =>"#{base_title}" # full_title('Welcome')
-    # click_link "Help"
-    # page.should # fill in
+    # click_link "Sign In"
+    # page.should # fill in    # page.should have_selector 'title', :text =>"#{base_title}" # full_title('Welcome')
   end
 end
 
