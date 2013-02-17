@@ -1,7 +1,8 @@
 <%# provide(:title, 'Welcome') %>  <!-- STRANGE DAT DIS IS D REASON FOR MY TESTS FAILING -->
+<% provide(:title, 'Welcome') %>  
 <div id="page_wrapper">
 <div id="content">
-<h1>Welcome</h1>
+<h1>Welcome to Student Portal</h1>
 <p>Links to all pages:</p>
 <ol>
 	<li><%= link_to "Students", students_path %></li>
@@ -15,7 +16,7 @@
 <!-- i shld create a test for this to check if dere is actually a model dat matches d form i am creating -->
 <%= link_to "Sign In", '#', class: "btn"  %>
 <%= link_to "Sign Up", signup_path, class: "btn"  %>
-
+<%#= debug(params) if Rails.env.development? %>
 <%#= form_for(@student) do |f|
 %>
 <%#= f.label :name %>

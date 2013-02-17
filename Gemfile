@@ -6,7 +6,7 @@ gem 'rails', '3.2.8'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'bcrypt-ruby'#, :require => 'bcrypt-ruby'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,7 +24,8 @@ group :test do
   gem 'cucumber-rails', :require => false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-  gem "capybara"
+  gem "capybara", '1.1.2'
+  gem 'factory_girl_rails' #, '4.1.0'
 end
 
 group :test, :development do

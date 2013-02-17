@@ -51,7 +51,7 @@ describe "Students" do
 	# 	end
 	# end
   it "should have the right links on the layout" do
-    visit root_path
+    # visit root_path
     click_link "Sign Up"
     page.should have_selector 'title', :text =>"#{base_title}" # full_title('Welcome')
     # click_link "Sign In"
