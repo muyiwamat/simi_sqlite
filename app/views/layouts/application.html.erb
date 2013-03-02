@@ -8,7 +8,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="wrapper">
+	<%= render 'layouts/header' %>
+
+	<div id="wrapper">
 	<%# if sign_in? %>
 	<% flash.each do |k,v| %>
 		<div class="alert alert-<%= k %>"><%= v %></div>

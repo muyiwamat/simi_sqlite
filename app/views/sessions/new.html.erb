@@ -1,0 +1,14 @@
+<div id="login" allign="center">
+
+<%= form_for(:session, url: sessions_path) do |f| %>
+			<%#= render 'shared/error_messages' %>
+			<%= f.label :email %>
+			<%= f.text_field :email %> <br />
+			<%= f.label :password %>
+			<%= f.password_field :password %>
+			<%= f.submit "Log In", class: "btn" %>
+		<% end %>
+
+	<p>Don't have an account? <%= link_to "Create one now!", signup_path %></p>
+
+</div>

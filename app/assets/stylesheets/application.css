@@ -108,6 +108,10 @@ width: auto;
 clear: both;
 }
 
+#login {
+ width: 450px;
+}
+
 .enlarge {
 /*font-size: 1.2em;*/
 text-transform: uppercase;
