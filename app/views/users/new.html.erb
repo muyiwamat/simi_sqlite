@@ -6,10 +6,10 @@
 		<%#= render 'shared/error_messages' %>
 		<%= f.label :email %>
 		<%= f.text_field :email %>
-		<%= f.label :password %>
-		<%= f.text_field :password %>
+		<%= f.label :password, "Password (minimum 7 characters)" %>
+		<%= f.password_field :password %>
 		<%= f.label :password_confirmation, "Confirmation" %>
-		<%= f.text_field :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
 		<%= f.label :address %>
 		<%= f.text_field :address %>
 		<%= f.label :postcode %>
