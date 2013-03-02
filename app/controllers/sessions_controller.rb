@@ -10,8 +10,8 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to user
     else
-      flash.now[:error] = 'Oops! Your email/password combination is wrong'
-      render 'new'
+      flash[:error] = 'Oops! Your email/password combination is wrong'
+      redirect_to root_path
     end
 
   end

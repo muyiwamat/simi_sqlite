@@ -31,11 +31,11 @@ describe "Users" do
 		end
 		describe "with valid information" do
 			before do
-				fill_in "Email", 		with: "ayodele"
+				fill_in "Email", 		with: "ayodele@yahoo.com"
 				fill_in "Password", 	with: "ayodele"
 				fill_in "Confirmation", with: "ayodele"
 				fill_in "Address", 		with: "ROOM 92E Esslemont House" 
-				fill_in "Postcode", 	with: "AB24 1WU" #strange dis test is failing...
+				fill_in "Postcode", 	with: "AB24 1WU"
 			end
 			it "should be successful" do
 				expect { click_button submit }.to change(User, :count).by(1)
@@ -65,7 +65,6 @@ describe "Users" do
   it "should have the right links on the layout" do
     visit root_path
     # let(:submit) { "Log In" } #i wld assume there is a way to do this...
-    click_link "Create Account" #should have_selector('title', :text => "Student Portal | Welcome")
-    # click_link "Log In"
+    # click_link "Log In" 
   end
 end

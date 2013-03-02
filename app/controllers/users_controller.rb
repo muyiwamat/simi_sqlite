@@ -26,6 +26,5 @@ class UsersController < ApplicationController
   end
 
   def welcome
-    @user = User.new #I think this makes sense
   end
 end

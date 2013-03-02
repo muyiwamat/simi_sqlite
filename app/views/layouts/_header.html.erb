@@ -1,12 +1,10 @@
 <nav>
-    <ul float="left">
-     <li><%= link_to "Home",    root_path %></li>
-      <li><%= link_to "Help",    '#' %></li>
-      <% if logged_in? %>
+  <ul float="left">
+    <li><%= link_to "Home", root_path %></li>
+    <li><%= link_to "Help", '#' %></li>
+    <% if logged_in? %>
       <li><%= link_to "Logout", logout_path, method: "delete" %></li>
-      <% else %>
-      <li><%= link_to "Login", login_path %></li>
-      <% end %>
-      <li><%= link_to "About",    '#' %></li>
-      </ul>
+    <% end %>
+    <li><%= link_to "About", '#' %></li>
+  </ul>
 </nav>

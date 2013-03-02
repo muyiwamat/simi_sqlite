@@ -1,12 +1,6 @@
 FactoryGirl.define do
-	factory :student do
-		name "Simileoluwa"
-		student_id 51126138
-		password "ayodele"
-		password_confirmation "ayodele"
-	end
 	factory :user do
-		email "ayodele"
+		email "ayodele@yahoo.com"
 		password "ayodele"
 		password_confirmation "ayodele"
 		address "ROOM 92E Esslemont House"
