@@ -1,0 +1,22 @@
+<% provide(:title, 'New User Account') %>
+<div>
+	<div id="content">
+		<h1>Create User Account</h1>
+		<%= form_for(@user) do |f| %>
+		<%#= render 'shared/error_messages' %>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+		<%= f.label :password %>
+		<%= f.text_field :password %>
+		<%= f.label :password_confirmation, "Confirmation" %>
+		<%= f.text_field :password_confirmation %>
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+		<%= f.label :postcode %>
+		<%= f.text_field :postcode %>
+		<%= f.submit "Create Account" %>
+		<% end %>
+	</div>
+	<div id="sidebar">
+	</div>
+</div>

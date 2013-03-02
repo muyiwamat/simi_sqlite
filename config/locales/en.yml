@@ -9,3 +9,6 @@ en:
       student:
         student_id: "Student ID"
         password_digest: "Password"
+    attributes:
+      user:
+        password_digest: "Password"

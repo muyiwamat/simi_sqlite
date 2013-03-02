@@ -2,9 +2,11 @@ Simi::Application.routes.draw do
 
   resources :students
 
-  root :to => 'students#welcome'
+  resources :users
 
-  match '/signup', to: 'students#new'
+  root :to => 'users#welcome'
+
+  match '/signup', to: 'users#new'
 
 
   # The priority is based upon order of creation:
