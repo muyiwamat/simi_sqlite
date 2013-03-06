@@ -1,0 +1,8 @@
+<% provide(:title, 'Search') %>
+<div class="span9">
+<div class="hero-unit">
+<% unless @results.empty? %>
+	  <%= render 'layouts/searchview' %>
+<% end %>
+</div>
+</div><!--/row-->

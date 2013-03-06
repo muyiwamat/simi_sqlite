@@ -2,6 +2,8 @@ Simi::Application.routes.draw do
 
   resources :users
 
+  resources :search
+
   resources :sessions, only: [:new, :create, :destroy]
 
   root :to => 'users#welcome'

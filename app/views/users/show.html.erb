@@ -1,6 +1,10 @@
-<% provide(:title, 'Show User Page') %>
+<% provide(:title, 'Show User Page' ) %>
+<%# provide(:title, current_user ) %> <!-- #crazy this worked -->
     <div class="span9">
         <div class="hero-unit">
-		<h1>Show User Page</h1>
-        </div><!--/row-->
+			<h1><%= current_user %> User Page</h1>
+			<div id="map_canvas">
+				<h3>Map Comes Here</h3>
+	        </div>
+		</div><!--/row-->
   </div>

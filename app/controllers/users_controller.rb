@@ -24,6 +24,19 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @a = lib
+  end
+
+  def lib
+    @user = User.find(params[:id])
+    # search_condition =  @user.postcode #"%#{search}%"
+    search_condition =  "AB15 7RF" 
+    library = Library.find(:all, :conditions => ['postcode LIKE ?', search_condition])
+    if library.count > 0
+      return @library = library
+    else
+      return 'your search returned no result'
+    end
   end
 
   def welcome

@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 7 }
   validates :password_confirmation, presence: true
   validates :postcode, format: { with: /\A([a-zA-Z]{2})\d{2}(\s|)\d([a-zA-Z]{2})\z/ }
-  # validates :postcode, format: { with: /\A([a-zA-Z]{2})\d{2}\s\d([a-zA-Z]{2})\z/ }
-
   private
 
     def create_remember_token
