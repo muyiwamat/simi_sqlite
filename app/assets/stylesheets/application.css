@@ -26,7 +26,7 @@ body {
 }
  .sidebar-nav {
   padding: 9px 0;
-  margin-top: 50px; /*test on small screen size and reduce*/
+  margin-top: 10px;
 }
 
 #error_explanation {
@@ -144,6 +144,11 @@ img {
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
+}
+#map_canvas { 
+  float: right;
+  width: 500px;
+  height: 450px;
 }
 #map_canvas img,
 .google-maps img {
@@ -3226,6 +3231,7 @@ input[type="submit"].btn.btn-mini {
 .alert {
   padding: 8px 35px 8px 14px;
   margin-bottom: 20px;
+  margin-top: 20px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
@@ -5065,7 +5071,7 @@ a.badge:hover {
 }
 .hero-unit {
   padding: 60px;
-  margin-top: 50px; /* test on smaller browser and resize*/
+  margin-top: 10px; 
   margin-bottom: 30px;
   font-size: 1.2em;
   font-weight: 200;

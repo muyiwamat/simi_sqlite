@@ -6,14 +6,14 @@
     <br />
     <%#= @a.class %>
     <%= @a %>
-    <p>Preferred Location <%= @user.postcode %> <br /> I give this post code to the google api and it returns places near the users  </p>
+    <p>Preferred Location <%= current_user.postcode %> <br /> I give this post code to the google api and it returns places near the users  </p>
     <%= form_tag("/search", :method => "get") do %>
     <%= label_tag(:search, "Type in search:") %>
-    <%= text_field_tag(:search) %>
+    <%= text_field_tag(:search, nil, placeholder: "E.g. AB24 1WU") %>
     <%= submit_tag("Search") %>
     <% end %>
   </div><!--/.well -->
-    <%#= debug(params) if Rails.env.development? && @user.name = 'ayo' %>
+    <%= debug(params) if Rails.env.development? &&  current_user.email = 'ayo@yahoo.com' %>
   
 </div><!--/span3--> 
 

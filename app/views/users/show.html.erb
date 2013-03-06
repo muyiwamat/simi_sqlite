@@ -3,6 +3,21 @@
     <div class="span9">
         <div class="hero-unit">
 			<h1><%= current_user %> User Page</h1>
+			<h2>Libraries Near You</h2>
+				<ul>
+					<% @libraries.each do |va| %>
+						<p><%= va.name %></p>
+						<li><%= va.address %></li>
+						<li><%= va.postcode %>
+						<%= link_to "Map...", search_path(va.postcode) %>
+						</li>
+						<li><%= "#{va.dialling} + #{va.telephone}" %></li>
+						<li><%= va.email %></li>
+						<li><%= va.access_details %></li>
+						<br />
+						<br />
+					<% end %>
+				</ul>
 			<div id="map_canvas">
 				<h3>Map Comes Here</h3>
 	        </div>

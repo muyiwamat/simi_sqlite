@@ -1,8 +1,25 @@
 <% provide(:title, 'Search') %>
 <div class="span9">
-<div class="hero-unit">
-<%#= paginate @results %>
-<p>Your search returned the following items:</p>
-
-</div>
+	<div class="hero-unit">
+		<%#= paginate @results %>
+		<!-- https://maps.googleapis.com/maps/api/geocode/json?address=AB24%201WU&sensor=false -->
+		<!-- https://developers.google.com/maps/articles/geolocation -->
+		<p>Your search returned the following items:</p>
+		<% unless @libraries.blank? %>
+			<% @libraries.each do |lib| %>
+					<p><%= lib.name %> </p>
+				<ul>
+					<li><%= lib.address %> </li>
+					<li><%= lib.postcode %> </li>
+					<li><%= lib.email %> </li>
+					<li><%= lib.access_details %> </li>
+					<li><%= lib.dialling %> </li>
+					<li><%= lib.telephone %> </li>
+				</ul>
+				<br />
+				<br />
+			<% end %>
+		<% end %>
+	</div>
 </div><!--/row-->
+ <div id="map_canvas"></div>

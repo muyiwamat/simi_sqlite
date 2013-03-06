@@ -12,7 +12,6 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :postcode, format: { with: /\A([a-zA-Z]{2})\d{2}(\s|)\d([a-zA-Z]{2})\z/ }
   private
-
     def create_remember_token
       self.remember_token = SecureRandom.urlsafe_base64
     end
