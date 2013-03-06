@@ -1,6 +1,6 @@
 <% provide(:title, 'New User Account') %>
-<div>
-	<div id="content">
+    <div class="span9">
+        <div class="hero-unit">
 		<h1>Create User Account</h1>
 		<%= form_for(@user) do |f| %>
 		<%= render 'shared/error_messages' %>
@@ -16,7 +16,5 @@
 		<%= f.text_field :postcode %> <br />
 		<%= f.submit "Create Account" %>
 		<% end %>
-	</div>
-	<div id="sidebar">
-	</div>
-</div>
+        </div><!--/row-->
+  </div>

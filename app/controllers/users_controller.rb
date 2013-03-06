@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
       log_in @user
-  		flash[:success] = "Account Successfully Created"
-  		 redirect_to @user #changed this
+  		flash.now[:success] = "Account Successfully Created"
+  		redirect_to @user #changed this
   	else
   		render "new"
   	end
@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def index

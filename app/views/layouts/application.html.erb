@@ -1,28 +1,9 @@
-<!DOCTYPE html>
-<html>
-	<head>
-	  <title>Aberdeen Locator | <%= yield(:title) %></title>
-	  <%= stylesheet_link_tag    "application", :media => "all" %>
-	  <%= javascript_include_tag "application" %>
-	  <%= csrf_meta_tags %>
-	</head>
-	<body>
-		<%#= render 'layouts/header' %>
-		<div id="wrapper">
-			<div id="nav">
-			    <%= link_to "Home", root_path %>
-			    <%= link_to "Help", '#' %>
-			    <% if logged_in? %>
-			      <%= link_to "Logout", logout_path, method: "delete" %>
-			    <% end %>
-			    <%= link_to "About", '#' %>
-			</div>
-			<%# if sign_in? %>
-			<% flash.each do |k,v| %>
-				<div class="alert alert-<%= k %>"><%= v %></div>
-			<% end %>
-			<%# end %>
-			<%= yield %>
-		</div>
-	</body>
-</html>
+<%= render 'layouts/head' %>
+<% if logged_in? %>
+<%= render 'layouts/userprofile' %>
+<% else %>
+<%= render 'layouts/login' %>
+<% end %>
+  <%= yield %>
+  </div><!--/row-fluid-->
+  <hr>
