@@ -1,11 +1,19 @@
 <%= provide(:title, 'Welcome') %>  
     <div class="span9">
         <div class="hero-unit">
-		<h1>Welcome to Aberdeen Search</h1>
-		<p>Links to all pages:</p>
-		<p>Instead of usin id's cant i use numbers as my value for params...</p>
+			<h1>Welcome to Aberdeen Search</h1>
+			<p>Links to all pages:</p>
+			<p>Instead of usin id's cant i use numbers as my value for params...</p>
+			<div id="search_bar">
+				<br />
+				<%= form_tag("/search", :method => "get") do %>
+				<%= label_tag(:search, "Your Post Code?") %>
+				<%= text_field_tag(:search, nil, placeholder: "E.g. AB24 1WU") %>
+				<%= submit_tag("Search", class: 'btn btn-primary btn-large') %>
+				<% end %>
+			</div><!--/span3--> 
         </div><!--/row-->
-  </div>
+  	</div>
 
 		<!-- i shld create a test for this to check if dere is actually a model dat matches d form i am creating -->
 <%#= render 'layouts/footer' %>

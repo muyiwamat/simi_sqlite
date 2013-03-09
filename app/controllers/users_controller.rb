@@ -28,6 +28,8 @@ class UsersController < ApplicationController
     user_postcode = "AB15 7RF"
     @libraries = Library.find(:all, conditions: ['postcode LIKE ?', user_postcode])
     @user = User.find(params[:id])
+    gon.userpostcode = "AB15 7RF"
+    # gon.p = "AB15 7RF"
   end
 
   def lib

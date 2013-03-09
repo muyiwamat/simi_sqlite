@@ -4,12 +4,20 @@
         <div class="hero-unit">
 			<h1><%= current_user %> User Page</h1>
 			<h2>Libraries Near You</h2>
+			<h2>Instead of using postcode it makes more sense if i use d name or address of d place...Makes it all easy</h2>
+			<p>Few issues: i av  more dan one address showing all of the maps on one page wld b to crowded and also might not work properly... dats y i am getting an error message...<br />Restructure Layout</p>
 				<ul>
 					<% @libraries.each do |va| %>
 						<p><%= va.name %></p>
 						<li><%= va.address %></li>
-						<li><%= va.postcode %>
+						<li><%= p = va.postcode %>
 						<%= link_to "Map...", search_path(va.postcode) %>
+						 <div id="user_map_canvas"></div>
+						<%= javascript_tag do  %>
+								window.print_postcode = "<%=j p %>";
+								<!-- prompt(window.print_postcode); -->
+								console.log(window.print_postcode);
+						<% end %>
 						</li>
 						<li><%= "#{va.dialling} + #{va.telephone}" %></li>
 						<li><%= va.email %></li>
@@ -18,6 +26,14 @@
 						<br />
 					<% end %>
 				</ul>
+
+<!-- DUMMY TEST -->
+<div id="users" data-url="<% users_url %>">
+</div>
+<%#= link_to "Users", users_path %>
+<!-- DELETE -->
+
+
 			<div id="map_canvas">
 				<h3>Map Comes Here</h3>
 	        </div>

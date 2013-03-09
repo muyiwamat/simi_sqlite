@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
   <title>Aberdeen Locator | <%= yield(:title) %></title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  <%= include_gon %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
+  <%= javascript_include_tag "http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
     <!-- Le styles -->

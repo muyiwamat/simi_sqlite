@@ -1,27 +1,8 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-//
-//= require jquery
-//= require jquery_ujs
-//= require user
-
-//my js code starts here
-// document.write(gon.myp); // alert(gon.myp);
-// alert(gon.mypostcode);
 var geocoder;
 var map;
 function initialize() {
     geocoder = new google.maps.Geocoder();
-    var address = gon.mypostcode;    // var address = 'AB24 1WU';
+    var address = gon.userpostcode;    // var address = 'AB24 1WU';
     geocoder.geocode( { 'address': address },  function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         // var address = 'Aberdeen';
@@ -45,7 +26,7 @@ function initialize() {
             center: map,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        map = new google.maps.Map(document.getElementById("user_map_canvas"), mapOptions);
         var marker = new google.maps.Marker({
             position: myLatlng,
             map: map,

@@ -7,5 +7,7 @@ class SearchController < ApplicationController
 
 	def show
 		# @libraries = Library.query(params[:search])
+		gon.mypostcode = params[:id]
+		# gon.myp = params[:id]
 	end
 end
