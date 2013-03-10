@@ -5166,3 +5166,22 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+
+/* Result Layout */
+
+li.even { 
+    background-color: silver;
+    list-style: none;
+    max-width: 470px;
+  }
+   
+  li.odd { 
+    background-color: white;
+    list-style: none;
+    max-width: 470px;
+   }
+
+
+    
+
+
