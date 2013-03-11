@@ -48,7 +48,7 @@ body {
   /*text-transform: uppercase;*/
   min-width: 400px;
   min-height: 50px;
-  font-size: 2em;
+  font-size: 1.2em;
   /*color: #447294;*/
   color: #2A75A9;
 }
@@ -71,7 +71,7 @@ body {
 }
 
 :-ms-input-placeholder {  
-   color: red;  
+   color: red;
   text-align: center;
   font-family: 'Quintessential', cursive;
 }
@@ -191,19 +191,29 @@ img {
   /*margin: 10px;*/
 }
 #user_map_canvas { 
-  height: 320px;
-  width: 480px;
-  margin-top: 10px;
-  float: right;
+  /*height: 320px;*/
+  /*width: 480px;*/
+  /*margin-top: 10px;*/
+  /*float: right;*/
   /*padding: 10px;*/
   /*margin: 10px;*/
 }
 #pano {
-  height: 300px;
-  width: 400px;
+  /*height: 300px;*/
+  /*width: 400px;*/
+  width: 640px;
+  height: 480px;
   padding: 10px;
   margin: 10px; 
 }
+
+#map_error {
+  padding: 20px;
+  text-transform: uppercase;
+  /*color: transparent;*/
+  color: red;
+}
+
 #map_canvas img,
 .google-maps img {
   max-width: none;

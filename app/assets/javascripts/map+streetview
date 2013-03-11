@@ -18,11 +18,10 @@
 // document.write(gon.myp); // alert(gon.myp);
 // alert(gon.mypostcode);
 var geocoder;
-// var map;
+var map;
 function initialize() {
     geocoder = new google.maps.Geocoder();
-    // var address = gon.mypostcode;    // var address = 'AB24 1WU';
-    var address = "Airyhall Library";
+    var address = gon.mypostcode;    // var address = 'AB24 1WU';
     geocoder.geocode( { 'address': address },  function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         // var address = 'Aberdeen';
@@ -34,58 +33,51 @@ function initialize() {
         var lat = lat_t.match(/\d+.\d+/).toString();
         var lng = lng_t.match(/\D\d+.\d+/).toString();
         // alert(lat.constructor);      // alert(lng.constructor);      // var new_map = new google.maps.LatLng(lat, lng);
-        var userLocation = new google.maps.LatLng(lat, lng);
-
-        var panoramaOptions = {
-          position: userLocation,
-          // animation,
-          pov: {
-            heading: 50,
-            pitch: 0
-          },
-            zoom: 1,
-            mapTypeControl: true,
-            mapTypeControlOptions: {
-                style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
-            },
-            zoomControl: true,
+        map = new google.maps.LatLng(lat, lng);
+        var myLatlng = map;
+        var mapOptions = {
+            zoom: 15,
+            zoomControl:true,
+            streetViewControl:true,
             zoomControlOptions: {
-                style: google.maps.ZoomControlStyle.SMALL
-            }
+                style:google.maps.ZoomControlStyle.SMALL
+            },
+            center: map,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var myPano = new google.maps.StreetViewPanorama(document.getElementById("pano"), panoramaOptions);
-        // user_location.setStreetView(panorama);
+        // map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
         var marker = new google.maps.Marker({
-            map: myPano,
-            // draggable: true,
-            animation: google.maps.Animation.BOUNCE,
-            // title: 'Your Location!',
-            position: userLocation
+            position: myLatlng,
+            map: map,
+            title: 'Location!'
         });
-        myPano.setVisible(true);
-        marker.setTitle("Ayodele"); // marker.setDraggable(true);
+
+        var contentString = "Ayodele Placeholder... I shld get the place name from response";
         var infowindow = new google.maps.InfoWindow({
-            content: "Your Location"
+            content: contentString,
+            maxWidth: 200
         });
-        google.maps.event.addListener(infowindow, 'onload', function () {
-            infowindow.setContent();
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
         });
-        google.maps.event.addListener(marker, 'click', toggleBounce);
+        var panoramaOptions = {
+          position: myLatlng,
+          pov: {
+            heading: 24,
+            pitch: 10,
+            zoom: 1
+          }
+        };
+        var panorama = new  google.maps.StreetViewPanorama(document.getElementById("pano"), panoramaOptions);
+        map.setStreetView(panorama);
 
       } else {
-           alert("Geocode was not successful for the following reason: " + status);
-           document.write('<div id="map_error">'+'<h1>Geocode was not successful for the following reason: + status</h1>'+status+'</div>');
+        document.write("<div id="error"> Geocode was not successful for the following reason: + status </div>")
+           // alert("Geocode was not successful for the following reason: " + status);
       }
     });
 }
-      function toggleBounce() {
-
-        if (marker.getAnimation() != null) {
-          marker.setAnimation(null);
-        } else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-      }
 
 
 google.maps.event.addDomListener(window, 'load', initialize);

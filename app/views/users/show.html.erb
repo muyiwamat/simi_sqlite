@@ -13,11 +13,12 @@
 						<li><%= p = va.postcode %>
 						<%= link_to "Map...", search_path(va.postcode) %>
 						 <div id="user_map_canvas"></div>
-						<%= javascript_tag do  %>
-								window.print_postcode = "<%=j p %>";
+						<%#= javascript_tag do  %>
+								<!-- window.print_postcode = "<%=j p %>"; -->
 								<!-- prompt(window.print_postcode); -->
-								console.log(window.print_postcode);
-						<% end %>
+								<!-- console.log(window.print_postcode); -->
+								<!-- document.write(window.print_postcode); -->
+						<%# end %>
 						</li>
 						<li><%= "#{va.dialling} + #{va.telephone}" %></li>
 						<li><%= va.email %></li>
@@ -26,16 +27,6 @@
 						<br />
 					<% end %>
 				</ul>
-
-<!-- DUMMY TEST -->
-<div id="users" data-url="<% users_url %>">
-</div>
-<%#= link_to "Users", users_path %>
-<!-- DELETE -->
-
-
-			<div id="map_canvas">
-				<h3>Map Comes Here</h3>
-	        </div>
+			<div id="map_canvas"></div>
 		</div><!--/row-->
   </div>

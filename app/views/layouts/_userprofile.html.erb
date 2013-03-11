@@ -4,9 +4,7 @@
       <li class="nav-header"></li>
     </ul>
     <br />
-    <%#= @a.class %>
-    <%= @a %>
-    <p>Preferred Location <%= current_user.postcode %> <br /> I give this post code to the google api and it returns places near the users  </p>
+    <p>Preferred Location: <%= current_user.postcode %> <br /></p>
     <%= form_tag("/search", :method => "get") do %>
     <%= label_tag(:search, "Type in search:") %>
     <%= text_field_tag(:search, nil, placeholder: "E.g. AB24 1WU") %>

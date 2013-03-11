@@ -23,19 +23,18 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user_postcode = @user.postcode #my user postcode doesnt exist so
-    # @libraries = Library.find(:all, conditions: ['postcode LIKE ?', @user.postcode])
-    user_postcode = "AB15 7RF"
-    @libraries = Library.find(:all, conditions: ['postcode LIKE ?', user_postcode])
+    # user_postcode = User.find(params[:id]).postcode 
+    user_postcode = "AB15 7RF" #my user postcode doesnt exist so using dummy data instead  
     @user = User.find(params[:id])
-    gon.userpostcode = "AB15 7RF"
+    @libraries = Library.find(:all, conditions: ['postcode LIKE ?', user_postcode])
+    # gon.userpostcode = "AB15 7RF"
     # gon.p = "AB15 7RF"
   end
 
   def lib
     @user = User.find(params[:id])
-    # search_condition =  @user.postcode #"%#{search}%"
-    search_condition =  "AB15 7RF"
+    search_condition =  @user.postcode #"%#{search}%"
+    # search_condition =  "AB15 7RF"
     library = Library.find(:all, :conditions => ['postcode LIKE ?', search_condition])
     if library.count > 0
       return @library = library
