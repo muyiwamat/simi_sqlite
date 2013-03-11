@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  include SessionsHelper
+
+  before_filter :admin_user,     only: :destroy
+
   def new
   	@user = User.new
   end
@@ -20,6 +24,13 @@ class UsersController < ApplicationController
   end
 
   def index
+    @users = User.all
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted."
+    redirect_to users_url
   end
 
   def show
@@ -30,6 +41,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     gon.userpostcode = "AB15 7RF"
     # gon.p = "AB15 7RF"
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Update successful!"
+      log_in @user
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def lib
@@ -46,4 +68,11 @@ class UsersController < ApplicationController
 
   def welcome
   end
+
+   private
+
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
+
 end
