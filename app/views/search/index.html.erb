@@ -1,25 +1,24 @@
 <% provide(:title, 'Search') %>
 <div class="span9">
 	<div class="hero-unit">
-		<%#= paginate @results %>
-		<!-- https://maps.googleapis.com/maps/api/geocode/json?address=AB24%201WU&sensor=false -->
-		<!-- https://developers.google.com/maps/articles/geolocation -->
+		<% if @libraries.blank? %>
+		<p>Sorry your query returned no results.</p>
+		<% else %>
 		<p>Your search returned the following items:</p>
-		<% unless @libraries.blank? %>
 			<% @libraries.each do |lib| %>
-					<p><%= lib.name %> </p>
+					<h3><%= lib.name %><%= link_to "[View on map]", search_path("#{lib.name} " + "#{lib.postcode}"), {:style => 'color:red;'} %> </h3>
 				<ul>
-					<li><%= lib.address %> </li>
-					<li><%= lib.postcode %> </li>
-					<li><%= lib.email %> </li>
-					<li><%= lib.access_details %> </li>
-					<li><%= lib.dialling %> </li>
-					<li><%= lib.telephone %> </li>
+					<li class="odd"><%= "#{lib.address},"+" #{lib.postcode}" %> </li>
+					<li class="even"><%= mail_to "#{lib.email}", lib.email, {:style => 'color:blue;'}  %> </li>
+					<li class="odd"><%= "#{lib.dialling}" + "#{lib.telephone}" %></li>
+					<li class="even">Access: <%= lib.access_details %> </li>
 				</ul>
 				<br />
 				<br />
 			<% end %>
 		<% end %>
+		
 	</div>
 </div><!--/row-->
  <div id="map_canvas"></div>
+<%= render 'layouts/footer' %>

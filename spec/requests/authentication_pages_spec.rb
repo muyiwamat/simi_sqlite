@@ -13,8 +13,8 @@ describe "Verify User" do
     describe "valid info" do
     	let(:user) { FactoryGirl.create(:user) }
     	before do 
-    		fill_in "Email" with: user.email.upcase
-    		fill_in "Password" with: user.password
+    		fill_in "Email", with: user.email.upcase
+    		fill_in "Password", with: user.password
     		click_button "Log In"
     	end
  	  it { should have_selector('title', text: user.name) }

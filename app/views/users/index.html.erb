@@ -1,7 +1,18 @@
 <% provide(:title, 'All User Page') %>
     <div class="span9">
         <div class="hero-unit">
-		<h1>All User Page</h1>
+		<h1>All Users</h1>
+
+		<ul class="users">
+  		<% @users.each do |user| %>
+    	 <li><%= link_to user.email, user %>
+         <% if admin? %><%= link_to "Delete User Account", user, method: :delete, data: { confirm: "You sure?" } %>
+         <% end %> 
+         </li>
+      <% end %>
+       </ul>
+
         </div><!--/row-->
   </div>
 
+<%= render 'layouts/footer' %>

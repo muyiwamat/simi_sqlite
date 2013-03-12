@@ -29,6 +29,10 @@ body {
   margin-top: 10px;
 }
 
+.sidebar-nav p {
+  font-size: 1.2em;
+  font-weight: bold;
+}
 #error_explanation {
   /*color: #f00; */
   color: #CC0000;
@@ -5136,7 +5140,8 @@ a.badge:hover {
 
 .hero-unit {
   padding: 60px;
-  margin-top: 10px; 
+  margin-top: 10px;
+  padding-top: 10px;
   margin-bottom: 30px;
   font-size: 1.2em;
   font-weight: 200;
@@ -5158,6 +5163,15 @@ a.badge:hover {
 .hero-unit li {
   line-height: 30px;
 }
+
+.hero-unit a {
+  text-decoration: none;
+}
+
+.hero-unit a:hover {
+  text-decoration: none;
+  border-top: 2px solid;
+}
 .pull-right {
   float: right;
 }
@@ -5176,3 +5190,22 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+
+/* Result Layout */
+
+li.even { 
+    background-color: silver;
+    list-style: none;
+    max-width: 470px;
+  }
+   
+  li.odd { 
+    background-color: white;
+    list-style: none;
+    max-width: 470px;
+   }
+
+
+    
+
+

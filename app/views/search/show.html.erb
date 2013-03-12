@@ -3,37 +3,13 @@
 <div class="hero-unit">
   <%= @mypostcode %> 
   <P>i SHLD WRITE A TEST TO CONFIRM THAT I AM PASSING THE RIGHT </P>
-
-<!--
-https://developers.google.com/maps/documentation/geocoding/index
-https://developers.google.com/maps/documentation/geocoding/index#ComponentFiltering
-https://developers.google.com/maps/documentation/javascript/geocoding
-http://railscasts.com/episodes/324-passing-data-to-javascript?view=asciicast
-http://gmaps-samples.googlecode.com/svn/trunk/geocoder/singlegeocode.html
-https://developers.google.com/maps/documentation/javascript/reference#Animation
-
-https://developers.google.com/maps/documentation/javascript/reference
-https://developers.google.com/maps/documentation/javascript/examples/
-https://developers.google.com/maps/documentation/javascript/places
-https://google-developers.appspot.com/maps/documentation/javascript/examples/
-   -->
-
-<a href="https://developers.google.com/maps/documentation/javascript/reference?hl=en">reference page...</a> <br />
-<a href="https://google-developers.appspot.com/maps/documentation/javascript/examples/streetview-overlays">Toggle 2Street View</a><br />
-  <a href="https://google-developers.appspot.com/maps/documentation/javascript/examples/place-search-pagination">Places Pagination is Awesome</a><br />
-  <a href="https://google-developers.appspot.com/maps/documentation/javascript/examples/marker-animations"></a><br />
-  <a href="https://developers.google.com/maps/documentation/javascript/overlays?hl=en">Check animation section</a><br />
- <!-- <div id="map_canvas"></div> -->
+<br />
      <div id="pano"></div>
-     <!-- <div id="error"></div> -->
   <div>
     <input id="address" type="hidden" placeholder="Aberdeen">
     <input type="hidden" value="Encode" onclick="codeAddress()">
     <br />
-    <br />
-    <p>
-    i shld be able to take d params[:id] and pass it to google maps for geocoding and on loading the page completely i show the user the street view and odas...
-    </p>
   </div>
 </div>
 </div><!--/row-->
+<%= render 'layouts/footer' %>

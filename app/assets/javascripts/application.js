@@ -12,35 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require user
 
-//my js code starts here
-// document.write(gon.myp); // alert(gon.myp);
-// alert(gon.mypostcode);
 var geocoder;
 // var map;
 function initialize() {
     geocoder = new google.maps.Geocoder();
-    // var address = gon.mypostcode;    // var address = 'AB24 1WU';
-    var address = "Airyhall Library";
+    var address = gon.mypostcode; // var address = "Airyhall Library";
     geocoder.geocode( { 'address': address },  function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        // var address = 'Aberdeen';
         var input = results[0].geometry.location;
-        var ayodele = '"'+ input +'"';  // var ayodele = '"'+""+ input +""+'"';      // alert(ayodele);
+        var ayodele = '"'+ input +'"';
         var split_result = ayodele.split(",",2);
         var lat_t = split_result[0];
         var lng_t = split_result[1];
         var lat = lat_t.match(/\d+.\d+/).toString();
         var lng = lng_t.match(/\D\d+.\d+/).toString();
-        // alert(lat.constructor);      // alert(lng.constructor);      // var new_map = new google.maps.LatLng(lat, lng);
         var userLocation = new google.maps.LatLng(lat, lng);
-
         var panoramaOptions = {
           position: userLocation,
-          // animation,
           pov: {
-            heading: 50,
+            heading: 0,
             pitch: 0
           },
             zoom: 1,
@@ -54,16 +45,13 @@ function initialize() {
             }
         };
         var myPano = new google.maps.StreetViewPanorama(document.getElementById("pano"), panoramaOptions);
-        // user_location.setStreetView(panorama);
         var marker = new google.maps.Marker({
             map: myPano,
-            // draggable: true,
             animation: google.maps.Animation.BOUNCE,
-            // title: 'Your Location!',
             position: userLocation
         });
         myPano.setVisible(true);
-        marker.setTitle("Ayodele"); // marker.setDraggable(true);
+        marker.setTitle(address);
         var infowindow = new google.maps.InfoWindow({
             content: "Your Location"
         });

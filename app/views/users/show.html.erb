@@ -1,32 +1,27 @@
 <% provide(:title, 'Show User Page' ) %>
-<%# provide(:title, current_user ) %> <!-- #crazy this worked -->
     <div class="span9">
         <div class="hero-unit">
-			<h1><%= current_user %> User Page</h1>
+			<h1>Welcome</h1>
 			<h2>Libraries Near You</h2>
-			<h2>Instead of using postcode it makes more sense if i use d name or address of d place...Makes it all easy</h2>
-			<p>Few issues: i av  more dan one address showing all of the maps on one page wld b to crowded and also might not work properly... dats y i am getting an error message...<br />Restructure Layout</p>
-				<ul>
-					<% @libraries.each do |va| %>
-						<p><%= va.name %></p>
-						<li><%= va.address %></li>
-						<li><%= p = va.postcode %>
-						<%= link_to "Map...", search_path(va.postcode) %>
-						 <div id="user_map_canvas"></div>
-						<%#= javascript_tag do  %>
-								<!-- window.print_postcode = "<%=j p %>"; -->
-								<!-- prompt(window.print_postcode); -->
-								<!-- console.log(window.print_postcode); -->
-								<!-- document.write(window.print_postcode); -->
-						<%# end %>
-						</li>
-						<li><%= "#{va.dialling} + #{va.telephone}" %></li>
-						<li><%= va.email %></li>
-						<li><%= va.access_details %></li>
-						<br />
-						<br />
-					<% end %>
-				</ul>
-			<div id="map_canvas"></div>
+				<% if !@libraries.blank? %>
+					<ul>
+						<% @libraries.each do |va| %>
+							<h3><%= va.name %><%= link_to "[View on map]", search_path("#{va.name} " + "#{va.postcode}"), {:style => 'color:red;'} %></h3>
+							<li class="odd"><%= "#{va.address},"+" #{va.postcode}" %>
+							</li>
+							<li class="even"><%= mail_to "#{va.email}", va.email, {:style => 'color:blue;'}  %> </li>
+							<li class="odd"><%= "#{va.dialling}" + "#{va.telephone}" %></li>
+							
+							<li class="even">Access: <%= va.access_details %></li>
+							
+							<br />
+							<br />
+						<% end %>
+					</ul>
+				<% else %>
+					<p>You have no library at your current location.</p>
+					<p>Please check out the following libraries closer to you: </p>
+				<% end %>
 		</div><!--/row-->
   </div>
+<%= render 'layouts/footer' %>

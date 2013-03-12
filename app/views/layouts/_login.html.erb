@@ -3,7 +3,6 @@
     <ul class="nav nav-list">
       <li class="nav-header"></li>
 	<%= form_for(:session, url: sessions_path) do |f| %>
-		<%#= render 'shared/error_messages' %> <!-- WHAT FOR -->
 		<%= f.label :email %>
 		<%= f.text_field :email %> <br />
 		<%= f.label :password %>
