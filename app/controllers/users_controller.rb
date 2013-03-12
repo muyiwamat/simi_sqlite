@@ -34,8 +34,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    user_postcode = User.find(params[:id]).postcode 
-    # user_postcode = "AB15 7RF"
+    split_result = (User.find(params[:id]).email).split(/@/); @name = split_result[0]
+    user_postcode = User.find(params[:id]).postcode   # user_postcode = "AB15 7RF"
     @user = User.find(params[:id])
     @libraries = Library.find(:all, conditions: ['postcode LIKE ?', user_postcode])
   end

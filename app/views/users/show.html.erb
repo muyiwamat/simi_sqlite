@@ -1,7 +1,7 @@
 <% provide(:title, 'Show User Page' ) %>
     <div class="span9">
         <div class="hero-unit">
-			<h1><%= "Welcome #{@user.email}" %></h1>
+			<h1><%= "Welcome #{@name.upcase}" %></h1>
 			<h2>Libraries Near You</h2>
 				<% if !@libraries.blank? %>
 					<ul>
