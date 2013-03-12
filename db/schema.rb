@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311045932) do
+ActiveRecord::Schema.define(:version => 20130312132529) do
 
   create_table "libraries", :force => true do |t|
     t.string   "name"
@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(:version => 20130311045932) do
     t.string   "password_digest"
     t.string   "address"
     t.string   "postcode"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
     t.integer  "user_id"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.string   "role"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"
