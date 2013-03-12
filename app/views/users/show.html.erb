@@ -19,8 +19,18 @@
 						<% end %>
 					</ul>
 				<% else %>
-					<p>You have no library at your current location.</p>
-					<p>Please check out the following libraries closer to you: </p>
+					<p>You have no libraries at your current location.</p>
+					<p>Please check out the following libraries close to your location: </p>
+					<ul>
+						<% @recommended_places.each do |va| %>
+							<h3><%= va.name %><%= link_to "[View on map]", search_path("#{va.name} " + "#{va.postcode}"), {:style => 'color:red;'} %></h3>
+							<li><%= "#{va.address},"+" #{va.postcode}" %>
+							</li>
+							<li><%= mail_to "#{va.email}", va.email %> </li>
+							<li>Access: <%= va.access_details %></li>
+							<br />
+						<% end %>
+					</ul>
 				<% end %>
 		</div><!--/row-->
   </div>

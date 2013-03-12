@@ -34,10 +34,12 @@ class UsersController < ApplicationController
   end
 
   def show
+    @recommendation_result = recommend(User.find(params[:id]).postcode)
     split_result = (User.find(params[:id]).email).split(/@/); @name = split_result[0]
-    user_postcode = User.find(params[:id]).postcode   # user_postcode = "AB15 7RF"
-    @user = User.find(params[:id])
+    user_postcode = User.find(params[:id]).postcode
     @libraries = Library.find(:all, conditions: ['postcode LIKE ?', user_postcode])
+    @recommended_places = Library.where('postcode LIKE ?', "%#{@recommendation_result}%").limit(3)
+    @user = User.find(params[:id])
   end
 
   def update
@@ -51,18 +53,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def lib
-  #   @user = User.find(params[:id])
-  #   # search_condition =  "AB15 7RF"
-  #   search_condition =  @user.postcode
-  #   library = Library.find(:all, :conditions => ['postcode LIKE ?', search_condition])
-  #   # if library.count > 0
-  #   #   return @library = library
-  #   # else
-  #   #   return 'your search returned no result'
-  #   # end
-  # end
-
   def welcome
   end
 
@@ -70,6 +60,17 @@ class UsersController < ApplicationController
 
     def admin_user
       redirect_to(root_path) unless current_user.role == "admin"
+    end
+
+    def recommend(args)
+      @recommendation = ''
+      split_args =  args.split("")
+      count = 0
+      3.times do
+        @recommendation << split_args[count]
+        count += 1
+      end
+      @recommendation
     end
 
 end

@@ -2,9 +2,9 @@
     <div class="span9">
         <div class="hero-unit">
 			<h1>Welcome to Aberdeen Search</h1>
-			<p>Links to all pages:</p>
-			<div id="search_bar">
 				<br />
+				<br />
+			<div id="search_bar">
 				<%= form_tag("/search", :method => "get") do %>
 				<%= label_tag(:search, "Your Post Code?") %>
 				<%= text_field_tag(:search, nil, placeholder: "E.g. AB24 1WU") %>
@@ -13,5 +13,3 @@
 			</div><!--/span3--> 
         </div><!--/row-->
   	</div>
-		<!-- i shld create a test for this to check if dere is actually a model dat matches d form i am creating -->
-

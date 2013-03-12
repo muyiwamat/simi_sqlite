@@ -5167,10 +5167,12 @@ a.badge:hover {
 }
 .hero-unit li {
   line-height: 30px;
+  list-style-type: none;
 }
 
 .hero-unit a {
   text-decoration: none;
+  color: red;
 }
 
 .hero-unit a:hover {
