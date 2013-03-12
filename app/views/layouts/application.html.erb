@@ -23,19 +23,50 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-    <%= render 'layouts/head' %>
   </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <div class="nav-collapse collapse">
+            <% if logged_in? %>
+            <li class="navbar-text pull-left"><%= link_to "Aberdeen Locator", current_user, class: "brand" %></li>
+            <li class="navbar-text pull-right"><%= link_to "logout", logout_path, method: "delete", class: "brand" %></li>
+            <li class="navbar-text pull-right"><%= link_to "Edit Profile", edit_user_path(current_user), class: 'brand' %></li>
+              <% if current_user.role == "admin" && !current_user?(:user)%>
+                <li class="navbar-text pull-right"><%= link_to "View Users", users_path, class: 'brand'  %></li> 
+              <% end %>
+            <ul class="nav">
+            <% else %>
+            <li class="navbar-text pull-left"><%= link_to "Aberdeen Locator", root_path, class: "brand" %></li>
+            <% end %>
+            </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+		<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>"><%= value %></div>
+		<% end %>
+		<div class="row-fluid"> 
+			<% if logged_in? %>
+				<%= render 'layouts/userprofile' %>
+			<% else %>
+				<%= render 'layouts/login' %>
+			<% end %>
+			<%= yield %>
+		</div><!--/row-fluid-->
+ <!-- <div> -->
+		<footer>
+			<p>&copy; Ademosu Ayodele, 51126138 | Muyiwa Matuluko, 51228047</p>
+		</footer>
+    </div><!--/.fluid-container-->
 
-<body>
-<% if logged_in? %>
-<%= render 'layouts/userprofile' %>
-<% else %>
-<%= render 'layouts/login' %>
-<% end %>
-  <%= yield %>
-  </div><!--/row-fluid-->
- <div>
-  <footer style="text-align:center;">
-  <%= render 'layouts/footer' %>
-</footer>
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>  
+    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap.min.js"></script>
 </body>
+</html>

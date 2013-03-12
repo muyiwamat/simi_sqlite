@@ -134,6 +134,9 @@ nav,
 section {
   display: block;
 }
+footer {
+  text-align: center;
+}
 audio,
 canvas,
 video {

@@ -5,8 +5,6 @@ class User < ActiveRecord::Base
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
 
-  # VALID_EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/
-  # validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, :on => :create }
   validates :password, length: { minimum: 7 }
   validates :password_confirmation, presence: true
