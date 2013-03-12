@@ -38,7 +38,8 @@
             <li class="navbar-text pull-left"><%= link_to "Aberdeen Locator", current_user, class: "brand" %></li>
             <li class="navbar-text pull-right"><%= link_to "logout", logout_path, method: "delete", class: "brand" %></li>
             <li class="navbar-text pull-right"><%= link_to "Edit Profile", edit_user_path(current_user), class: 'brand' %></li> 
-              <% if admin? %>
+
+              <% if current_user.role == "admin" && !current_user?(:user)%>
                 <li class="navbar-text pull-right"><%= link_to "View Users", users_path, class: 'brand'  %></li> 
               <% end %>
             <ul class="nav">

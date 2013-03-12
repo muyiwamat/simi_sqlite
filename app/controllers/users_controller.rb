@@ -23,8 +23,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def index
-    @users = User.all
+   def index
+    @users = User.where(role: nil)
   end
 
   def destroy
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
    private
 
     def admin_user
-      redirect_to(root_path) unless current_user.admin?
+      redirect_to(root_path) unless current_user.role == "admin"
     end
 
 end

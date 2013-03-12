@@ -27,8 +27,6 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
 
-  def admin?
-     current_user == User.find_by_email("ayo@yahoo.com")
-  end
+  
 
 end
