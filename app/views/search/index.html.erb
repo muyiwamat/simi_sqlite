@@ -1,6 +1,4 @@
 <% provide(:title, 'Search') %>
-<div class="span9">
-	<div class="hero-unit">
 		<% if @libraries.blank? %>
 		<p>Sorry your query returned no results.</p>
 		<% else %>
@@ -13,12 +11,7 @@
 					<li class="odd"><%= "#{lib.dialling}" + "#{lib.telephone}" %></li>
 					<li class="even">Access: <%= lib.access_details %> </li>
 				</ul>
-				<br />
-				<br />
 			<% end %>
 		<% end %>
-		
-	</div>
-</div><!--/row-->
- <!-- <div id="map_canvas"></div> -->
+ <!-- <div id="map_canvas"></div> PLEASE DONT TOUCH THIS...-->
 

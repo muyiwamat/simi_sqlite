@@ -1,26 +1,17 @@
-<% provide(:title, 'Edit User Page') %>  
-	<%#= render 'layouts/login' %>
-    <div class="span9">
-        <div class="hero-unit">
-			<h1>Edit User Page</h1>
-		<%= form_for(@user) do |f| %>
+<% provide(:title, 'Edit User Page') %>
+	<h1>Edit User Page</h1>
+	<%= form_for(@user) do |f| %>
 		<%= render 'shared/error_messages' %>
 		<%= f.label :email %>
 		<%= f.text_field :email %> <br />
-		<%= f.label :password, "Password (minimum 7 characters)" %>
-		<%= f.password_field :password %> <br />
+		<%= f.label :password %>
+		<%= f.password_field :password, placeholder: "Password (minimum of 7 characters)" %> <br />
 		<%= f.label :password_confirmation, "Confirmation" %> 
-		<%= f.password_field :password_confirmation %><br />
+		<%= f.password_field :password_confirmation, placeholder: "Password (minimum of 7 characters)" %><br />
 		<%= f.label :address %>
 		<%= f.text_field :address %><br />
 		<%= f.label :postcode %>
-		<%= f.text_field :postcode %> <br />
-		<%= f.submit "Save Changes" %>
-		<% end %>
-        </div><!--/row-->
-  </div>
-
-        </div><!--/row-->
-  </div>
-
+		<%= f.text_field :postcode %> <br /><br />
+		<%= f.submit "Save Changes", class: "btn" %>
+	<% end %>
 

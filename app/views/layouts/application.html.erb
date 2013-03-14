@@ -20,39 +20,33 @@
   </head>
   <body>
     <div class="navbar">
-            <% if logged_in? %>
-            <%= link_to "Aberdeen Locator", current_user, class: "brand" %>
-            <%= link_to "logout", logout_path, method: "delete", class: "brand" %>
-            <%= link_to "Edit Profile", edit_user_path(current_user), class: 'brand' %>
-              <% if current_user.role == "admin" && !current_user?(:user)%>
-                <%= link_to "View Users", users_path, class: 'brand'  %>
-              <% end %>
-            <% else %>
-            <%= link_to "Aberdeen Locator", root_path, class: "lft" %>
-            <% end %>
+      <% if logged_in? %>
+      <%= link_to "Aberdeen Locator", current_user, class: "brand" %>
+      <%= link_to "logout", logout_path, method: "delete", class: "brand" %>
+      <%= link_to "Edit Profile", edit_user_path(current_user), class: 'brand' %>
+        <% if current_user.role == "admin" && !current_user?(:user)%>
+          <%= link_to "View Users", users_path, class: 'brand'  %>
+        <% end %>
+      <% else %>
+        <%= link_to "Aberdeen Locator", root_path, class: "lft brand" %>
         <%= form_for(:session, url: sessions_path) do |f| %>
-            <%#= render 'shared/error_messages' %> <!-- WHAT FOR -->
             <%= f.label :email %>
             <%= f.text_field :email %>
             <%= f.label :password %>
             <%= f.password_field :password %>
             <%= f.submit "Log In", class: "btn" %>
         <% end %>
+      <% end %>
     </div>
     <div class="hero-unit">
       <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
+          <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-<div class="span3">
-    </ul>
-  </div><!--/.well -->
-
   <%= yield %>
-  
-		<footer>
-			<p>&copy; Ademosu Ayodele, 51126138 | Muyiwa Matuluko, 51228047</p>
-		</footer>
-    </div><!--/.fluid-container-->
+    </div>
+    <footer>
+      <p>&copy; Ademosu Ayodele, 51126138 | Muyiwa Matuluko, 51228047</p>
+    </footer>
 
     <!-- Le javascript
     ================================================== -->

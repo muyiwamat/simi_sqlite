@@ -1,20 +1,16 @@
 <% provide(:title, 'New User Account') %>
-    <div class="span9">
-        <div class="hero-unit">
-		<h1>Create User Account</h1>
-		<%= form_for(@user) do |f| %>
-		<%= render 'shared/error_messages' %>
-		<%= f.label :email %>
-		<%= f.text_field :email %> <br />
-		<%= f.label :password, "Password (minimum 7 characters)" %>
-		<%= f.password_field :password %> <br />
-		<%= f.label :password_confirmation, "Confirmation" %> 
-		<%= f.password_field :password_confirmation %><br />
-		<%= f.label :address %>
-		<%= f.text_field :address %><br />
-		<%= f.label :postcode %>
-		<%= f.text_field :postcode %> <br />
-		<%= f.submit "Create Account" %>
-		<% end %>
-        </div><!--/row-->
-  </div>
+<h1>Create User Account</h1>
+	<%= form_for(@user) do |f| %>
+	<%= render 'shared/error_messages' %>
+	<%= f.label :email %>
+	<%= f.text_field :email %> <br />
+	<%= f.label :password, "Password (minimum 7 characters)" %>
+	<%= f.password_field :password %> <br />
+	<%= f.label :password_confirmation, "Confirmation" %> 
+	<%= f.password_field :password_confirmation %><br />
+	<%= f.label :address %>
+	<%= f.text_field :address %><br />
+	<%= f.label :postcode %>
+	<%= f.text_field :postcode %> <br /><br />
+	<%= f.submit "Create Account", class: "btn" %>
+<% end %>

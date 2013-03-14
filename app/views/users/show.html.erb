@@ -1,36 +1,32 @@
 <% provide(:title, 'Show User Page' ) %>
-    <div class="span9">
-        <div class="hero-unit">
-			<h1><%= "Welcome #{@name.upcase}" %></h1>
-			<h2>Libraries Near You</h2>
-				<% if !@libraries.blank? %>
-					<ul>
-						<% @libraries.each do |va| %>
-							<h3><%= va.name %><%= link_to "[View on map]", search_path("#{va.name} " + "#{va.postcode}"), {:style => 'color:red;'} %></h3>
-							<li class="odd"><%= "#{va.address},"+" #{va.postcode}" %>
-							</li>
-							<li class="even"><%= mail_to "#{va.email}", va.email, {:style => 'color:blue;'}  %> </li>
-							<li class="odd"><%= "#{va.dialling}" + "#{va.telephone}" %></li>
-							
-							<li class="even">Access: <%= va.access_details %></li>
-							
-							<br />
-							<br />
-						<% end %>
-					</ul>
-				<% else %>
-					<p>You have no libraries at your current location.</p>
-					<p>Please check out the following libraries close to your location: </p>
-					<ul>
-						<% @recommended_places.each do |va| %>
-							<h3><%= va.name %><%= link_to "[View on map]", search_path("#{va.name} " + "#{va.postcode}"), {:style => 'color:red;'} %></h3>
-							<li><%= "#{va.address},"+" #{va.postcode}" %>
-							</li>
-							<li><%= mail_to "#{va.email}", va.email %> </li>
-							<li>Access: <%= va.access_details %></li>
-							<br />
-						<% end %>
-					</ul>
-				<% end %>
-		</div><!--/row-->
-  </div>
+<h1><%= "Welcome #{@name.upcase}" %></h1>
+<h2>Libraries Near You</h2>
+<% if !@libraries.blank? %>
+	<ul>
+		<% @libraries.each do |va| %>
+			<h3><%= va.name %><%= link_to "[View on map]", search_path("#{va.name} " + "#{va.postcode}"), {:style => 'color:red;'} %></h3>
+			<li class="odd"><%= "#{va.address},"+" #{va.postcode}" %>
+			</li>
+			<li class="even"><%= mail_to "#{va.email}", va.email, {:style => 'color:blue;'}  %> </li>
+			<li class="odd"><%= "#{va.dialling}" + "#{va.telephone}" %></li>
+			
+			<li class="even">Access: <%= va.access_details %></li>
+			
+			<br />
+			<br />
+		<% end %>
+	</ul>
+<% else %>
+	<p>You have no libraries at your current location.</p>
+	<p>Please check out the following libraries close to your location: </p>
+	<ul>
+		<% @recommended_places.each do |va| %>
+			<h3><%= va.name %><%= link_to "[View on map]", search_path("#{va.name} " + "#{va.postcode}"), {:style => 'color:red;'} %></h3>
+			<li><%= "#{va.address},"+" #{va.postcode}" %>
+			</li>
+			<li><%= mail_to "#{va.email}", va.email %> </li>
+			<li>Access: <%= va.access_details %></li>
+			<br />
+		<% end %>
+	</ul>
+<% end %>

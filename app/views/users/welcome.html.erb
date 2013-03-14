@@ -1,11 +1,14 @@
 <%= provide(:title, 'Welcome') %>
 			<h1>Welcome to Aberdeen Search</h1>
-    <%= form_tag("/search", :method => "get") do %>
-    <%= label_tag(:search, "Your Post Code?") %>
-    <%= text_field_tag(:search, nil, placeholder: "E.g. AB24 1WU") %>
-    <%= submit_tag("Search") %>
-    <% end %>
+			<div class="search_bar" >
+			    <%= form_tag("/search", :method => "get") do %>
+			    <%= label_tag(:search, "Your Post Code?") %>
+			    <%= text_field_tag(:search, nil, placeholder: "E.g. AB24 1WU") %>
+			    <br />
+			    <%= submit_tag("Search", class: "btn") %>
+			    <% end %>
+			    <br />
+			</div>
     <br />
     <br />
 <p style="text-align: center" >Don't have an account? <br /><br /> <%= link_to "Create one now!", signup_path, class: "btn" %></p>
-</div>
