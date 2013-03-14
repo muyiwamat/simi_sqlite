@@ -51,11 +51,6 @@ footer {
   color: red;
 }
 
-#map_canvas { 
-  float: right;
-  width: 500px;
-  height: 450px;
-}
 #map_canvas img,
 .google-maps img {
   max-width: none;
@@ -298,3 +293,42 @@ list-style-type: none;
   font-size: 20px;
   font-weight: 200;
 }
+
+
+/* for mobile phones and smaller screens*/
+
+/* for 700px or less */
+   @media screen and (max-width: 700px) {
+     .navbar {
+       height: auto;
+     }
+     
+     #pano {
+      width: 480px;
+      height: 320px;
+      padding: 10px;
+      margin: 10px;
+            
+     }
+   }
+   
+   /* for 480px or less */
+   @media screen and (max-width: 480px) {
+     .navbar {
+       height: auto;
+     }
+     
+     #pano {
+      width: auto;
+      height: auto;      
+     }
+     
+     #email_id {
+      display: none;
+     }
+     
+    #pass_id {
+      display: none;
+     }
+     
+   }
