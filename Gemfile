@@ -26,7 +26,7 @@ group :test do
   gem 'rspec-rails', '2.11.0'
 end
 
-gem 'upsert'
+gem 'taps'
 
 gem 'jquery-rails', '2.0.2'
 
