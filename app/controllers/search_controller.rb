@@ -2,7 +2,8 @@ class SearchController < ApplicationController
 	include ApplicationHelper
 	include SessionsHelper
 	def index
-		@libraries = Library.query(params[:search])
+      search = "%#{:search.upcase}%"
+		@libraries = Library.query(params[search])
   	end
 
 	def show
