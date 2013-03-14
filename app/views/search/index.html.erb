@@ -7,7 +7,7 @@
 		<p>Your search returned the following items:</p>
 			<% @libraries.each do |lib| %>
 					<h3><%= lib.name %><%= link_to "[View on map]", search_path("#{lib.name} " + "#{lib.postcode}"), {:style => 'color:red;'} %> </h3>
-				<ul>
+				<ul class="list-menu">
 					<li class="odd"><%= "#{lib.address},"+" #{lib.postcode}" %> </li>
 					<li class="even"><%= mail_to "#{lib.email}", lib.email, {:style => 'color:blue;'}  %> </li>
 					<li class="odd"><%= "#{lib.dialling}" + "#{lib.telephone}" %></li>
