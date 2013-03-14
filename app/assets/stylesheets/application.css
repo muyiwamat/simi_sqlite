@@ -251,6 +251,7 @@ label {
    /* for 480px or less */
    @media screen and (max-width: 480px) {
      .navbar {
+       width: auto;
        height: auto;
      }
      
@@ -258,18 +259,27 @@ label {
       width: auto;
       
         h3{ 
-        font-size:0.6px;
+        font-size:0.1px;
        }
        
        h1{ 
         font-size:0.6px;
        }
        li {
-       font-size: 0.2px;
+       font-size: 0.06px;
        }
+       
+       li.even { 
+      background:white;
+      width:auto;
+      }
+      li.odd { 
+      background:silver; 
+      width:auto;
+      
+      }
+      
      }
-     #sidebar-nav {
-       display: none;
-     } 
+     
     
    }
