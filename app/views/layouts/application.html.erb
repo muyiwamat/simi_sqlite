@@ -31,10 +31,10 @@
       <div class="login_container">
         <%= link_to "Aberdeen Locator", root_path, class: "lft brand" %>
         <%= form_for(:session, url: sessions_path) do |f| %>
-           <%= f.label :email %>
-           <%= f.text_field :email %>
-           <%= f.label :password %>
-           <%= f.password_field :password %>
+           <%= f.label :email, id: "email_id" %>
+           <%= f.text_field :email, placeholder: "Email" %>
+           <%= f.label :password, id: "pass_id" %>
+           <%= f.password_field :password, placeholder: "Password" %>
            <%= f.submit "Log In", class: "btn" %>
         <% end %>
        </div>

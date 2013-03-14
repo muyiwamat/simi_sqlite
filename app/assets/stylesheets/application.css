@@ -323,4 +323,12 @@ list-style-type: none;
       height: auto;      
      }
      
+     #email_id {
+      display: none;
+     }
+     
+    #pass_id {
+      display: none;
+     }
+     
    }
