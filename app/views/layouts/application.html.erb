@@ -28,14 +28,16 @@
           <%= link_to "View Users", users_path, class: 'brand'  %>
         <% end %>
       <% else %>
+      <div class="login_container">
         <%= link_to "Aberdeen Locator", root_path, class: "lft brand" %>
         <%= form_for(:session, url: sessions_path) do |f| %>
-            <%= f.label :email %>
-            <%= f.text_field :email %>
-            <%= f.label :password %>
-            <%= f.password_field :password %>
-            <%= f.submit "Log In", class: "btn" %>
+           <%= f.label :email %>
+           <%= f.text_field :email %>
+           <%= f.label :password %>
+           <%= f.password_field :password %>
+           <%= f.submit "Log In", class: "btn" %>
         <% end %>
+       </div>
       <% end %>
     </div>
     <div class="hero-unit">

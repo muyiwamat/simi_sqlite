@@ -319,11 +319,8 @@ list-style-type: none;
      }
      
      #pano {
-      width: 320px;
-      height: 240px;
-      padding: 5px;
-      margin: 5px;
-            
+      width: auto;
+      height: auto;      
      }
      
    }
