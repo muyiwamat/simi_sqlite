@@ -1,6 +1,6 @@
 <% provide(:title, 'Search') %>
 		<% if @libraries.blank? %>
-		<p>Sorry your query returned no results.</p>
+		<h1>Sorry your query returned no results.</h1>
 		<% else %>
 		<p>Your search returned the following items:</p>
 			<% @libraries.each do |lib| %>
