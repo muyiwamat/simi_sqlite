@@ -1,0 +1,9 @@
+<div class="search_bar" >
+    <%= form_tag("/search", :method => "get") do %>
+    <%= label_tag(:search, "Your Post Code?") %>
+    <%= text_field_tag(:search, nil, placeholder: "E.g. AB24 1WU") %>
+    <br />
+    <%= submit_tag("Search", class: "btn") %>
+    <% end %>
+    <br />
+</div>

@@ -1,0 +1,4 @@
+Aberdeen Locator is a simple rails app that uses open data from the aberdeen city council data set. The idea is to help people find places easily within the council by providing information in a very easy to consume manner. As a result of time constraints we could only implement the Libraries Data-set.  
+A brief description of the way in which the app works. A user inputs a postcode into the search bar and a result containing a list of libraries matching or similar to the postcode are returned with relevant information. The 
+
+or makes an empty search 

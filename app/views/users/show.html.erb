@@ -1,5 +1,6 @@
 <% provide(:title, 'Show User Page' ) %>
 <h1><%= "Welcome #{@name.upcase}" %></h1>
+			<%= render "layouts/search"  %>
 <h2>Libraries Near You</h2>
 <% if !@libraries.blank? %>
 	<ul>
