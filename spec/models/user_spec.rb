@@ -4,7 +4,7 @@ describe User do
 	before { @user = User.new(email: "ayodele@yahoo.com", password: "ayodele", password_confirmation: "ayodele", address: "ROOM 92E Esslemont House", postcode: "AB24 1WU") }
 
 	subject { @user }
-	it { should respond_to(:email) } #it { @student.should respond_to(:name) }
+	it { should respond_to(:email) }
 	it { should respond_to(:password_digest) }
 	it { should respond_to(:password) }
 	it { should respond_to(:password_confirmation) }
@@ -17,7 +17,7 @@ describe User do
 
 	describe "when email is not present" do
 		before { @user.email = " " }
-		it { should_not be_valid } #returns false as my validates ensures dat d name email not b empty(not nil)
+		it { should_not be_valid } 
 	end
 
 	describe "when email is taken" do
@@ -47,7 +47,7 @@ describe User do
 	end
 
 	describe "when password is not present" do
-		before { @user.password = @user.password_confirmation = " " } # before { @user.password = " ", @user.password_confirmation = " " } #before { @user.password = " ", @user.password_confirmation = " " }
+		before { @user.password = @user.password_confirmation = " " }
 		it { should_not be_valid }
 	end
 	describe "when password doesnt match confirmation" do
@@ -79,7 +79,6 @@ describe User do
 			end
 		end
 		it "should be valid" do
-			# postcodes = %w[AB241WU ab241wu 'AB24 1EU' 'AB24 1wu' 'ab24 1WU' ab241WU]
 			postcodes = ["AB241WU", "ab241wu", "AB24 1EU", "AB24 1wu", "ab24 1WU", "ab241WU"]
 			postcodes.each do |p|
 				@user.postcode = p

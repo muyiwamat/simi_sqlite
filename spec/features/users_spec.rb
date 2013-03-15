@@ -11,11 +11,17 @@ describe "Users" do
 			visit '/' 
 			should have_selector('title', :text => "Aberdeen Locator | Welcome")
 		end
+		# let(:submit) { "Search" }
+		it "should have a search menu" do
+			visit '/'
+			should have_selector('div.search_bar', text: "" )
+			click_button ("Search")
+		end
 	end
 
 	describe "Index page" do
 		before { visit users_path }
-		it { should have_selector('h1', text: 'All User Page') }
+		it { should have_selector('h1', text: 'All Users') }
 		it { should have_selector('title', text: "Aberdeen Locator | All User Page") }
 	end
 
@@ -36,9 +42,9 @@ describe "Users" do
 				fill_in "Confirmation", with: "ayodele"
 				fill_in "Address", 		with: "ROOM 92E Esslemont House" 
 				fill_in "Postcode", 	with: "AB24 1WU"
-			end
-			it "should be successful" do
-				expect { click_button submit }.to change(User, :count).by(1)
+				it "should be successful" do
+					expect { click_button submit }.to change(User, :count).by(1)
+				end
 			end
 		end
 	end
@@ -53,18 +59,21 @@ describe "Users" do
 
 	describe "Show page" do
 		let(:user) { FactoryGirl.create(:user) }
+		let(:library) { FactoryGirl.create(:library) }
 		it "should have the h1 'Show User Page'" do
-			visit user_path(user.id)
-			page.should have_selector('h1', :text => 'Show User Page')
+			visit user_path(user) # OR... visit user_path(user.id)
+			page.should have_selector('h1', :text => "Welcome AYO" ) #page.should have_selector('h1', :text => "Welcome #{user.email}" )
 		end
 		it "should have the title 'Aberdeen Locator Show User Page' " do
 			visit user_path(user.id)
 			page.should have_selector('title', :text => "Aberdeen Locator | Show User Page")
 		end
+		it "should have a list of libraries" do
+			#if i cld do n.times {} wld b nice to create a list of libraries from my fixtures.
+			visit user_path(user)
+			page.has_selector?('h3')
+			page.has_content?('library')
+			page.has_content?("[View on map]") # page should have_link("[View on map]") #need to understand ow 2place test result on browser 2imitate what wld b dere in actuality
+		end
 	end
-  it "should have the right links on the layout" do
-    visit root_path
-    # let(:submit) { "Log In" } #i wld assume there is a way to do this...
-    # click_link "Log In" 
-  end
 end
