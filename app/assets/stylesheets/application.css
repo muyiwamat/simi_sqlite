@@ -310,6 +310,14 @@ list-style-type: none;
       margin: 10px;
             
      }
+     
+     #email_id {
+      display: none;
+     }
+     
+    #pass_id {
+      display: none;
+     }
    }
    
    /* for 480px or less */
